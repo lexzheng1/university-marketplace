@@ -1,9 +1,10 @@
-// File: client/src/components/auth/Register.js
+// client/src/components/auth/Register.js
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../actions/auth';
 import { toast } from 'react-toastify';
+import './Auth.css';
 
 const Register = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -32,74 +33,99 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <section className="container">
-      <h1 className="large text-primary">Sign Up</h1>
-      <p className="lead">Create Your Account</p>
-      <form className="form" onSubmit={onSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={name}
-            onChange={onChange}
-            required
-          />
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-logo">UniMarket</div>
+        <h1 className="auth-title">Sign Up</h1>
+        <p className="auth-subtitle">Create your account to start buying and selling</p>
+        
+        <form className="auth-form" onSubmit={onSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              className="form-control"
+              placeholder="John Doe"
+              name="name"
+              value={name}
+              onChange={onChange}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              className="form-control"
+              placeholder="johndoe@university.edu"
+              name="email"
+              value={email}
+              onChange={onChange}
+              required
+            />
+            <small className="form-text">Please use your university email if possible</small>
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="university">University</label>
+            <input
+              type="text"
+              id="university"
+              className="form-control"
+              placeholder="State University"
+              name="university"
+              value={university}
+              onChange={onChange}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              className="form-control"
+              placeholder="••••••••"
+              name="password"
+              value={password}
+              onChange={onChange}
+              minLength="6"
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="password2">Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              className="form-control"
+              placeholder="••••••••"
+              name="password2"
+              value={password2}
+              onChange={onChange}
+              minLength="6"
+              required
+            />
+          </div>
+          
+          <button type="submit" className="btn-primary">Create Account</button>
+        </form>
+        
+        <div className="auth-footer">
+          Already have an account? <Link to="/login">Sign In</Link>
         </div>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={onChange}
-            required
-          />
-          <small className="form-text">
-            Please use your university email if possible
-          </small>
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="University"
-            name="university"
-            value={university}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            minLength="6"
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={onChange}
-            minLength="6"
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
-      </form>
-      <p className="my-1">
-        Already have an account? <Link to="/login">Sign In</Link>
-      </p>
-    </section>
+      </div>
+    </div>
   );
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth?.isAuthenticated
 });
 
 export default connect(mapStateToProps, { register })(Register);
