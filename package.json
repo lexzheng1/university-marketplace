@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm start --prefix client",
@@ -37,8 +36,4 @@
     "multer": "^1.4.3",
     "nodemon": "^2.0.12"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6c02ef07695e041363bd7293b6e9a724c9898920
