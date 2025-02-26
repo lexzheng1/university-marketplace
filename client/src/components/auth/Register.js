@@ -1,6 +1,6 @@
 // File: client/src/components/auth/Register.js
 import React, { useState } from 'react';
-import { Link, Navigate, Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../actions/auth';
 import { toast } from 'react-toastify';
