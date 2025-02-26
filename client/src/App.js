@@ -1,9 +1,3 @@
-// Commands to run in terminal:
-// npx create-react-app client
-// cd client
-// npm install axios react-router-dom react-toastify redux react-redux redux-thunk redux-devtools-extension
-
-// File: client/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -36,16 +30,28 @@ function App() {
           <Navbar />
           <ToastContainer />
           <Routes>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/add-product" component={ProductForm} />
-            <PrivateRoute exact path="/add-service" component={ServiceForm} />
-            <Route exact path="/products" component={ProductList} />
-            <Route exact path="/services" component={ServiceList} />
-            <Route exact path="/products/:id" component={ProductDetail} />
-            <Route exact path="/services/:id" component={ServiceDetail} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            } />
+            <Route path="/add-product" element={
+              <PrivateRoute>
+                <ProductForm />
+              </PrivateRoute>
+            } />
+            <Route path="/add-service" element={
+              <PrivateRoute>
+                <ServiceForm />
+              </PrivateRoute>
+            } />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/services" element={<ServiceList />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/services/:id" element={<ServiceDetail />} />
           </Routes>
         </div>
       </Router>
