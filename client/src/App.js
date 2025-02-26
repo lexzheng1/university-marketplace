@@ -5,7 +5,7 @@
 
 // File: client/src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import { ToastContainer } from 'react-toastify';
@@ -35,7 +35,7 @@ function App() {
         <div className="App">
           <Navbar />
           <ToastContainer />
-          <Switch>
+          <Routes>
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -46,7 +46,7 @@ function App() {
             <Route exact path="/services" component={ServiceList} />
             <Route exact path="/products/:id" component={ProductDetail} />
             <Route exact path="/services/:id" component={ServiceDetail} />
-          </Switch>
+          </Routes>
         </div>
       </Router>
     </Provider>
