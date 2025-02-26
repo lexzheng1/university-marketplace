@@ -98,6 +98,7 @@
     color: #4c51bf;
     text-decoration: none;
     font-weight: 600;
+    font-size: 16px; /* Add this line to increase font size */
   }
   
   .auth-footer a:hover {
