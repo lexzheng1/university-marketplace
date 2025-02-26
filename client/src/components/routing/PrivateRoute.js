@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const PrivateRoute = ({ auth, children }) => {
+const PrivateRoute = ({ children, auth }) => {
   if (!auth.isAuthenticated && !auth.loading) {
     return <Navigate to="/login" />;
   }
